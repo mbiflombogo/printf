@@ -15,7 +15,7 @@ struct fmtspec
 {
 	char *flag;
 	int (*fptr)(va_list);
-}
+};
 typedef struct fmtspec fts;
 
 int _printf(const char *format, ...);
