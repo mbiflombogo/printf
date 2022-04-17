@@ -32,11 +32,10 @@ int print_str(va_list list)
 	char *s;
 
 	s = va_arg(list, char *);
-	if (s != NULL)
-	{
-		for (i = 0; s[i] != '\0'; i++)
-			_write_ch(s[i]);
-	}
+	if (s == NULL)
+		s = "(null)";
+	for (i = 0; s[i] != '\0'; i++)
+		_write_ch(s[i]);
 	return (i);
 }
 /**
