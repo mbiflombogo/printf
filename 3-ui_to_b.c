@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 /**
   * _cpy - copy n bytes from src to dest
   * @dest: destination

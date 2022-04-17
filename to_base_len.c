@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 /**
   * to_base_len - len of dec nums converted to base
   * @n: num of which we want len
