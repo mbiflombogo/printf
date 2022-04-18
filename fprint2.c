@@ -14,5 +14,4 @@ int print_dec_no(va_list list)
 	for (i = 0; buf[i]; i++)
 		_write_ch(buf[i]);
 	return (buf[i]);
-
 }
