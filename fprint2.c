@@ -15,3 +15,60 @@ int print_dec_no(va_list list)
 		_write_ch(buf[i]);
 	return (buf[i]);
 }
+
+/**
+ * unsigned_num_to_string - converts the input integers to strings
+ * @num: input no
+ * @base: the base (10)
+ * @buffer: the input
+ * Return: void
+ */
+void unsigned_num_to_string(uint64_t num, int base, char *buffer)
+{
+	if (num == 0)
+	{
+		*buffer++ = '0';
+		*buffer = 0;
+		return;
+	}
+	char buf[65];
+	int i;
+	int cur = 0;
+
+	for (i = 0; i < 65; i++)
+		buff[i] = 0;
+	while (num)
+	{
+		int digit = num % base;
+
+		if (digit >= 10)
+			buf[cur++] = 'a' + (digit - 10);
+		else
+		{
+			buf[cur++] = '0' + digit;
+		}
+		num / = base;
+	}
+	for (i = (cur - 1); i != 0; i++)
+		*buffer++ = buf[i];
+	*buffer++ = buf[0];
+	*buffer = 0;
+}
+
+ /**
+  * num_to_string - checks and converts signed int  to unsigned int
+  * @num: input no
+  * @base: the base (10)
+  * @buffer: the input
+  * Return: void
+  */
+void num_to_string(int64_t num, int base, char *buffer)
+{
+	if (num < 0)
+	{
+		*buffer++ = '_';
+		num = -num;
+		unsigned_num_to_string(num, base, buffer);
+	}
+	unsigned_num_to_string(num, base, buffer);
+}
