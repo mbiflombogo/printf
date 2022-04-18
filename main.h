@@ -31,5 +31,6 @@ char *_cpy(char *dest, char *src, unsigned int n);
 int print_to_bin(va_list list);
 int print_dec_no(va_list list);
 void num_to_string(int64_t num, int base, char *buffer);
+void unsigned_num_to_string(uint64_t num, int base, char *buffer);
 
 #endif
