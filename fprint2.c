@@ -1,74 +1,79 @@
 #include "main.h"
 
 /**
- * print_dec_no - outputs integers of base 10
- * @list: input values
- * Return: buffer
+ * print_i - prints an integer
+ * @i: integer to print
+ *
+ * Return: number of chars and digits printed
  */
-int print_dec_no(va_list list)
+int print_i(va_list i)
 {
-	int i, num = va_arg(list, int);
-	char buf[32];
+	int a[10];
+	int j, m, n, sum, count;
 
-	num_to_string(num, 10, buf);
-	for (i = 0; buf[i]; i++)
-		_write_ch(buf[i]);
-	return (buf[i]);
+	n = va_arg(i, int);
+	count = 0;
+	m = 1000000000;
+	a[0] = n / m;
+	for (j = 1; j < 10; j++)
+	{
+		m /= 10;
+		a[j] = (n / m) % 10;
+	}
+	if (n < 0)
+	{
+		_putchar('-');
+		count++;
+		for (j = 0; j < 10; j++)
+			a[j] *= -1;
+	}
+	for (j = 0, sum = 0; j < 10; j++)
+	{
+		sum += a[j];
+		if (sum != 0 || j == 9)
+		{
+			_putchar('0' + a[j]);
+			count++;
+		}
+	}
+	return (count);
 }
 
 /**
- * unsigned_num_to_string - converts the input integers to strings
- * @num: input no
- * @base: the base (10)
- * @buffer: the input
- * Return: void
+ * print_d - prints a decimal
+ * @d: decimal to print
+ *
+ * Return: number of chars and digits printed
  */
-void unsigned_num_to_string(u_int64_t num, int base, char *buffer)
+int print_d(va_list d)
 {
-	char buf[65];
-	int i;
-	int cur = 0;
+	int a[10];
+	int j, m, n, sum, count;
 
-	if (num == 0)
+	n = va_arg(d, int);
+	count = 0;
+	m = 1000000000;
+	a[0] = n / m;
+	for (j = 1; j < 10; j++)
 	{
-		*buffer++ = '0';
-		*buffer = 0;
-		return;
+		m /= 10;
+		a[j] = (n / m) % 10;
 	}
-	for (i = 0; i < 65; i++)
-		buf[i] = 0;
-	while (num)
+	if (n < 0)
 	{
-		int digit = num % base;
-
-		if (digit >= 10)
-			buf[cur++] = 'a' + (digit - 10);
-		else
+		_putchar('-');
+		count++;
+		for (j = 0; j < 10; j++)
+			a[j] *= -1;
+	}
+	for (j = 0, sum = 0; j < 10; j++)
+	{
+		sum += a[j];
+		if (sum != 0 || j == 9)
 		{
-			buf[cur++] = '0' + digit;
+			_putchar('0' + a[j]);
+			count++;
 		}
-		num /= base;
 	}
-	for (i = (cur - 1); i != 0; i++)
-		*buffer++ = buf[i];
-	*buffer++ = buf[0];
-	*buffer = 0;
-}
-
- /**
-  * num_to_string - checks and converts signed int  to unsigned int
-  * @num: input no
-  * @base: the base (10)
-  * @buffer: the input
-  * Return: void
-  */
-void num_to_string(int64_t num, int base, char *buffer)
-{
-	if (num < 0)
-	{
-		*buffer++ = '-';
-		num = -num;
-		unsigned_num_to_string(num, base, buffer);
-	}
-	unsigned_num_to_string(num, base, buffer);
+	return (count);
 }
