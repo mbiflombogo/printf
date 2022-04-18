@@ -2,37 +2,36 @@
 
 /**
  * print_i - prints an integer
- * @i: integer to print
- *
- * Return: number of chars and digits printed
+ * @list: integer input
+ * Return: string of digits
  */
-int print_i(va_list i)
+int print_i(va_list list)
 {
-	int a[10];
-	int j, m, n, sum, count;
+	int buf[10];
+	int j, m, num, sum, count;
 
-	n = va_arg(i, int);
+	num = va_arg(list, int);
 	count = 0;
 	m = 1000000000;
-	a[0] = n / m;
+	buf[0] = num / m;
 	for (j = 1; j < 10; j++)
 	{
 		m /= 10;
-		a[j] = (n / m) % 10;
+		buf[j] = (num / m) % 10;
 	}
-	if (n < 0)
+	if (num < 0)
 	{
-		_putchar('-');
+		_write_ch('-');
 		count++;
 		for (j = 0; j < 10; j++)
-			a[j] *= -1;
+			buf[j] *= -1;
 	}
 	for (j = 0, sum = 0; j < 10; j++)
 	{
-		sum += a[j];
+		sum += buf[j];
 		if (sum != 0 || j == 9)
 		{
-			_putchar('0' + a[j]);
+			_write_ch('0' + buf[j]);
 			count++;
 		}
 	}
@@ -40,38 +39,37 @@ int print_i(va_list i)
 }
 
 /**
- * print_d - prints a decimal
- * @d: decimal to print
- *
- * Return: number of chars and digits printed
+ * print_d - print a decimal no
+ * @list: input decimal_no to print
+ * Return: string of decimal numbers to be printed
  */
-int print_d(va_list d)
+int print_d(va_list list)
 {
-	int a[10];
-	int j, m, n, sum, count;
+	int buf[10];
+	int j, m, num, sum, count;
 
-	n = va_arg(d, int);
+	num = va_arg(list, int);
 	count = 0;
 	m = 1000000000;
-	a[0] = n / m;
+	buf[0] = num / m;
 	for (j = 1; j < 10; j++)
 	{
 		m /= 10;
-		a[j] = (n / m) % 10;
+		buf[j] = (num / m) % 10;
 	}
-	if (n < 0)
+	if (num < 0)
 	{
-		_putchar('-');
+		_write_ch('-');
 		count++;
 		for (j = 0; j < 10; j++)
-			a[j] *= -1;
+			buf[j] *= -1;
 	}
 	for (j = 0, sum = 0; j < 10; j++)
 	{
-		sum += a[j];
+		sum += buf[j];
 		if (sum != 0 || j == 9)
 		{
-			_putchar('0' + a[j]);
+			_write_ch('0' + buf[j]);
 			count++;
 		}
 	}
