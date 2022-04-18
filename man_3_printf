@@ -9,7 +9,7 @@ _printf \- check format and display data on standard output
 
 .SH DESCRIPTION
 
-.B _printf ARGUMENTS(s) 
+.B _printf ARGUMENTS(s)
 takes unlimted no of arguments with different formats, executes and gives outputs a string to std output. The formats are described below;
 .B Conversion Specifiers
 A character that determines the type of conversion to be applied. They include;
@@ -17,7 +17,7 @@ A character that determines the type of conversion to be applied. They include;
 .BR \d ", " \i
 The int argument is converted to signed decimal notation.
 .BR \c
-The int argument is converted to a char and the resulting character is printed. 
+The int argument is converted to a char and the resulting character is printed.
 .BR \s
 The const char * argument is expected to be a pointer to a string. The character are parsed and written as an array but the null teminator ('\0') is not incuded.
 .BR \%
@@ -27,7 +27,7 @@ the unsigned int argument is converted to binary and printed on display.
 
 .B OPTION
 .TP
-.BR \-h "," \-? ", " \-\-help 
+.BR \-h "," \-? ", " \-\-help
 display this help information.
 .TP
 .BR \-v ", " \-\-version
@@ -37,7 +37,7 @@ outputs the current version
 outputs only the current version
 
 .SH RETURN VALUE
-When the function runs successfully it returns the number of characters printed not including the null byte at the end of the all strings 
+When the function runs successfully it returns the number of characters printed not including the null byte at the end of the all strings
 
 .SH FILES
 .TP
