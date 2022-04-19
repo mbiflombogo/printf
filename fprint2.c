@@ -75,3 +75,70 @@ int print_d(va_list list)
 	}
 	return (count);
 }
+/**
+ *expo - gets the base raised to a number
+ * @base: the base input
+ * @xponent: raise to power.
+ * Return: result.
+ */
+unsigned long expo(unsigned int base, unsigned int xponent)
+{
+	unsigned int i;
+	unsigned long result = base;
+
+	for (i = 0; i < xponent; i++)
+	{
+		result *= base;
+
+	}
+	return (result);
+}
+
+/**
+ * print_p - prints a pointer
+ * @list: input list of values
+ * Return: count.
+ */
+int print_p(va_list list)
+{
+	unsigned int i, sum = 0;
+	unsigned int buf[16];
+	unsigned long num, m;
+	int count = 0;
+	char *str = "(nil)";
+
+	num = va_arg(list, unsigned long);
+	if (num == 0)
+	{
+		for (i = 0; str[i]; i++)
+		{
+			_write_ch(str[i]);
+			count++;
+		}
+		return (count);
+	}
+	_write_ch('0');
+	_write_ch('x');
+	count = 2;
+	m = expo(16, 15);
+	buf[0] = num / m;
+
+	for (i = 1; i < 16; i++)
+	{
+		m /= 16;
+		buf[i] = (num / m) % 16;
+	}
+	for (i = 0; i < 16; i++)
+	{
+		sum += buf[i];
+		if (sum || i == 15)
+		{
+			if (buf[i] < 10)
+				_write_ch('0' + buf[i]);
+			else
+				_write_ch('0' + ('a' - ':') + buf[i]);
+			count++;
+		}
+	}
+	return (count);
+}
