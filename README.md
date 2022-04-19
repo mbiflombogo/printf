@@ -17,6 +17,7 @@ Example
 int num;
 
 num = 3;
+
 _printf("Project %d", num);
 
 # sample output
