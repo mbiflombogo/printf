@@ -64,6 +64,7 @@ int _printf(const char *format, ...)
 		{"b", print_to_bin},
 		{"d", print_d},
 		{"i", print_i},
+		{"p", print_p},
 		{NULL, NULL}
 	};
 
