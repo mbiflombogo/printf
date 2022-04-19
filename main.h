@@ -31,8 +31,6 @@ char *_cpy(char *dest, char *src, unsigned int n);
 
 unsigned long expo(unsigned int base, unsigned int xponent);
 
-int print_num(va_list ap);
-int print_int(va_list ap);
 int print_to_bin(va_list list);
 
 int print_d(va_list list);
