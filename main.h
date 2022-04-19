@@ -31,5 +31,6 @@ char *_cpy(char *dest, char *src, unsigned int n);
 int print_to_bin(va_list list);
 int print_d(va_list list);
 int print_i(va_list list);
+int print_p(va_list list);
 
 #endif
