@@ -24,6 +24,8 @@ The const char * argument is expected to be a pointer to a string. The character
 This is a format specifier, the next value is converted but % is not converted.
 .BR \b
 the unsigned int argument is converted to binary and printed on display.
+.BR \p
+the void pinter argument is written in hexadecimal then displayed.
 
 .B OPTION
 .TP
