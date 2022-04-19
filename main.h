@@ -28,6 +28,7 @@ void _write_str(char *str);
 unsigned int to_base_len(unsigned int n, int base);
 char *reverse(char *s);
 char *_cpy(char *dest, char *src, unsigned int n);
+unsigned long expo(unsigned int base, unsigned int xponent);
 int print_to_bin(va_list list);
 int print_d(va_list list);
 int print_i(va_list list);
