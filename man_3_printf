@@ -24,7 +24,7 @@ The int argument is converted to a char and the resulting character is printed.
 .B s " "
 The const char * argument is expected to be a pointer to a string. The character are parsed and written as an array but the null teminator ('\0') is not incuded.
 .TP
-.B % " " 
+.B % " "
 This is a format specifier, the next value is converted but % is not converted.
 .TP
 .B b " "
